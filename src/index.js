@@ -72,8 +72,12 @@ if (cityTimeZone === "current") {
   )}</small></div>
 
   </div>
-  <div> <a href="/" </a> See all cities </div>
+  <p><a class="link-opacity-100" href="/">See all cities</a></p>
+  <br>
+    <br>
+      <br>
   `;
+
 }
 
 updateTime();
