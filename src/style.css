@@ -21,7 +21,7 @@ select{
 }
 
 h1{
-    text-align: center;
+    text-align: left;
     font-family: sans-serif;
     font-size: 36px;
 
@@ -61,3 +61,4 @@ footer{
     font-size: 18px;
     color: :dimgray;
 }
+
