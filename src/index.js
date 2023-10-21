@@ -49,4 +49,19 @@ setInterval(function () {
   BrasiliaTimeElement.innerHTML = BrasiliaTime.format(
     "h:mm:ss [<small>]A[</small>]"
   );
+
+  //SELECTION CITY
+
+  function updatecity(event) {
+    let cityTimeZone = event.target.value;
+    let cityTime = moment().tz(cityTimeZone);
+let citiesElement = document.querySelector("#cities");
+citiesElement.innerHTML = cityTimeZone;
+citiesElement = ''
+  }
+
+
 }, 1000);
+
+let citiesSelectElement = document.querySelector("#city");
+citiesSelectElement.addEventListener("change", updatecity);
