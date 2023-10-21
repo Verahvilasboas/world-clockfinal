@@ -1,5 +1,4 @@
-
-setInterval(function () {
+function updateTime() {
   //Paris
   let ParisElement = document.querySelector("#Paris");
   let ParisDateElement = ParisElement.querySelector(".date");
@@ -49,19 +48,29 @@ setInterval(function () {
   BrasiliaTimeElement.innerHTML = BrasiliaTime.format(
     "h:mm:ss [<small>]A[</small>]"
   );
-
+}
   //SELECTION CITY
+function updateCity(event) {
+  let cityTimeZone = event.target.value;
+  let cityName = cityTimeZone.replace("_", " ").split("/")[1];
+  let cityTime = moment().tz(cityTimeZone);
+  let citiesElement = document.querySelector("#cities");
+  citiesElement.innerHTML = `
+  <div class="city">
+    <div>
+      <h2>${cityName}</h2>
+      <div class="date">${cityTime.format("MMMM	Do YYYY")}</div>
+    </div>
+    <div class="time">${cityTime.format("h:mm:ss")} <small>${cityTime.format(
+    "A"
+  )}</small></div>
+  </div>
+  `;
+}
 
-  function updatecity(event) {
-    let cityTimeZone = event.target.value;
-    let cityTime = moment().tz(cityTimeZone);
-let citiesElement = document.querySelector("#cities");
-citiesElement.innerHTML = cityTimeZone;
-citiesElement = ''
-  }
+updateTime();
+setInterval(updateTime, 1000);
 
-
-}, 1000);
 
 let citiesSelectElement = document.querySelector("#city");
 citiesSelectElement.addEventListener("change", updatecity);
